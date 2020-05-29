@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--<script src="scripts/jquery-3.3.1.min.js"></script>-->
+        <meta charset="utf-8">
+        <title>Day 008: Three.js test</title>
+        <base target="_blank" />
+        <style>
+			body { margin: 0; }
+			canvas { display: block; }
+		</style>
+    </head>
+    <body>
+        <script src="scripts/three.js"></script>
+        <script>
+            // Define scene
+            var scene = new THREE.Scene();
+            
+            // Define camera
+            var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            
+            // Define renderer
+            var renderer = new THREE.WebGLRenderer();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            document.body.appendChild(renderer.domElement);
+            
+            // Create cube
+            //var geometry = new THREE.BoxGeometry();
+            
+            var geometry = new THREE.BufferGeometry();
+            var geometry1 = new THREE.BufferGeometry();
+            var geometry2 = new THREE.BufferGeometry();
+            var geometry3 = new THREE.BufferGeometry();
+            var geometry4 = new THREE.BufferGeometry();
+            var geometry5 = new THREE.BufferGeometry();
+            var geometry6 = new THREE.BufferGeometry();
+            var geometry7 = new THREE.BufferGeometry();
+            var geometry8 = new THREE.BufferGeometry();
+            var geometry9 = new THREE.BufferGeometry();
+            var geometry10 = new THREE.BufferGeometry();
+            var geometry11 = new THREE.BufferGeometry();
+            
+            // Set verticies
+            
+            var verticies = new Float32Array( [
+                              
+                -0.75, -1.0,  -4.0,
+                -0.75,  1.0,  -4.0,
+                -1.0,  -1.0,  -4.0,
+                
+                -0.75,  1.0,  -4.0,
+                -1.0,   1.0,  -4.0,
+                -1.0,  -1.0,  -4.0,
+                 
+                 1.0,  -1.0,  -4.0,
+                 1.0,   1.0,  -4.0,
+                 0.75, -1.0,  -4.0,
+                
+                 1.0,   1.0,  -4.0,
+                 0.75,  1.0,  -4.0,
+                 0.75, -1.0,  -4.0,
+                 
+                 0.75,  1.0,  -4.0,
+                -0.75,  1.0,  -4.0,
+                 0.75,  0.75, -4.0,
+                
+                -0.75,  1.0,  -4.0,
+                -0.75,  0.75, -4.0,
+                 1.0,   0.75, -4.0,
+                 
+                 0.75, -1.0,  -4.0,
+                 0.75, -0.75, -4.0,
+                -0.75, -1.0,  -4.0,
+                
+                -0.75, -1.0,  -4.0,
+                 0.75, -0.75, -4.0,
+                -0.75, -0.75, -4.0
+            ]);
+            
+            // Set speed
+            var speed = 0.025;
+            
+            // Set color variable
+            var r, g, b, color;
+            color = 'rgba(' + r + ', ' + g + ', ' + b +', 1.0)';
+            r = 0.0;
+            g = 0.0;
+            b = 0.0;
+            
+            geometry.setAttribute('position', new THREE.BufferAttribute(verticies, 3));
+            geometry1.setAttribute('position', new THREE.BufferAttribute(verticies, 3));
+            geometry2.setAttribute('position', new THREE.BufferAttribute(verticies, 3));
+            geometry3.setAttribute('position', new THREE.BufferAttribute(verticies, 3));
+            geometry4.setAttribute('position', new THREE.BufferAttribute(verticies, 3));
+            geometry5.setAttribute('position', new THREE.BufferAttribute(verticies, 3));
+            geometry6.setAttribute('position', new THREE.BufferAttribute(verticies, 3));
+            geometry7.setAttribute('position', new THREE.BufferAttribute(verticies, 3));
+            geometry8.setAttribute('position', new THREE.BufferAttribute(verticies, 3));
+            geometry9.setAttribute('position', new THREE.BufferAttribute(verticies, 3));
+            geometry10.setAttribute('position', new THREE.BufferAttribute(verticies, 3));
+            geometry11.setAttribute('position', new THREE.BufferAttribute(verticies, 3));
+            
+            // Create material
+            var material = new THREE.MeshBasicMaterial();
+            var material1 = new THREE.MeshBasicMaterial();
+            var material2 = new THREE.MeshBasicMaterial();
+            var material3 = new THREE.MeshBasicMaterial();
+            var material4 = new THREE.MeshBasicMaterial();
+            var material5 = new THREE.MeshBasicMaterial();
+            var material6 = new THREE.MeshBasicMaterial();
+            var material7 = new THREE.MeshBasicMaterial();
+            var material8 = new THREE.MeshBasicMaterial();
+            var material9 = new THREE.MeshBasicMaterial();
+            var material10 = new THREE.MeshBasicMaterial();
+            var material11 = new THREE.MeshBasicMaterial();
+            
+            material.color.r = r;
+            material.color.g = g;
+            material.color.b = b;
+            
+            // Add material to cube
+            var cube = new THREE.Mesh(geometry, material);
+            var cube1 = new THREE.Mesh(geometry1, material1);
+            var cube2 = new THREE.Mesh(geometry2, material2);
+            var cube3 = new THREE.Mesh(geometry3, material3);
+            var cube4 = new THREE.Mesh(geometry4, material4);
+            var cube5 = new THREE.Mesh(geometry5, material5);
+            var cube6 = new THREE.Mesh(geometry6, material6);
+            var cube7 = new THREE.Mesh(geometry7, material7);
+            var cube8 = new THREE.Mesh(geometry8, material8);
+            var cube9 = new THREE.Mesh(geometry9, material9);
+            var cube10 = new THREE.Mesh(geometry10, material10);
+            var cube11 = new THREE.Mesh(geometry11, material11);
+            
+            cube1.position.z -= 1.0;
+            cube2.position.z -= 2.0;
+            cube3.position.z -= 3.0;
+            cube4.position.z -= 4.0;
+            cube5.position.z -= 5.0;
+            cube6.position.z -= 6.0;
+            cube7.position.z -= 7.0;
+            cube8.position.z -= 8.0;
+            cube9.position.z -= 9.0;
+            cube10.position.z -= 10.0;
+            cube11.position.z -= 11.0;
+            
+            // Add to scene
+            scene.add(cube);
+            scene.add(cube1);
+            scene.add(cube2);
+            scene.add(cube3);
+            scene.add(cube4);
+            scene.add(cube5);
+            scene.add(cube6);
+            scene.add(cube7);
+            scene.add(cube8);
+            scene.add(cube9);
+            scene.add(cube10);
+            scene.add(cube11);
+            
+            // Set camera position to make the cube visible
+            camera.position.z = 0;
+            
+            function animate() {
+                
+                if (cube.position.z >= -4.0) {
+                    material.color.r = cube.position.z / 4.0;
+                    material.color.g = g;
+                    material.color.b = b;
+                } else {
+                    material.color.r = 0.0;
+                    material.color.g = 0.0;
+                    material.color.b = 0.0;
+                }
+                
+                if (cube1.position.z >= -4.0) {
+                    material1.color.r = cube1.position.z / 4.0;
+                    material1.color.g = cube1.position.z / 4.0;
+                    material1.color.b = b;
+                } else {
+                    material1.color.r = 0.0;
+                    material1.color.g = 0.0;
+                    material1.color.b = 0.0;
+                }
+                
+                if (cube2.position.z >= -4.0) {
+                    material2.color.r = r;
+                    material2.color.g = cube2.position.z / 4.0;
+                    material2.color.b = b;
+                } else {
+                    material2.color.r = 0.0;
+                    material2.color.g = 0.0;
+                    material2.color.b = 0.0;
+                }
+                
+                if (cube3.position.z >= -4.0) {
+                    material3.color.r = r;
+                    material3.color.g = cube3.position.z / 4.0;
+                    material3.color.b = cube3.position.z / 4.0;
+                } else {
+                    material3.color.r = 0.0;
+                    material3.color.g = 0.0;
+                    material3.color.b = 0.0;
+                }
+                
+                if (cube4.position.z >= -4.0) {
+                    material4.color.r = r;
+                    material4.color.g = g;
+                    material4.color.b = cube4.position.z / 4.0;
+                } else {
+                    material4.color.r = 0.0;
+                    material4.color.g = 0.0;
+                    material4.color.b = 0.0;
+                }
+                
+                if (cube5.position.z >= -4.0) {
+                    material5.color.r = cube5.position.z / 4.0;
+                    material5.color.g = g;
+                    material5.color.b = cube5.position.z / 4.0;
+                } else {
+                    material5.color.r = 0.0;
+                    material5.color.g = 0.0;
+                    material5.color.b = 0.0;
+                }
+                
+                if (cube6.position.z >= -4.0) {
+                    material6.color.r = cube6.position.z / 4.0;
+                    material6.color.g = g;
+                    material6.color.b = b;
+                } else {
+                    material6.color.r = 0.0;
+                    material6.color.g = 0.0;
+                    material6.color.b = 0.0;
+                }
+                
+                if (cube7.position.z >= -4.0) {
+                    material7.color.r = cube7.position.z / 4.0;
+                    material7.color.g = cube7.position.z / 4.0;
+                    material7.color.b = b;
+                } else {
+                    material7.color.r = 0.0;
+                    material7.color.g = 0.0;
+                    material7.color.b = 0.0;
+                }
+                
+                if (cube8.position.z >= -4.0) {
+                    material8.color.r = r;
+                    material8.color.g = cube8.position.z / 4.0;
+                    material8.color.b = b;
+                } else {
+                    material8.color.r = 0.0;
+                    material8.color.g = 0.0;
+                    material8.color.b = 0.0;
+                }
+                
+                if (cube9.position.z >= -4.0) {
+                    material9.color.r = r;
+                    material9.color.g = cube9.position.z / 4.0;
+                    material9.color.b = cube9.position.z / 4.0;
+                } else {
+                    material9.color.r = 0.0;
+                    material9.color.g = 0.0;
+                    material9.color.b = 0.0;
+                }
+                
+                if (cube10.position.z >= -4.0) {
+                    material10.color.r = r;
+                    material10.color.g = g;
+                    material10.color.b = cube10.position.z / 4.0;
+                } else {
+                    material10.color.r = 0.0;
+                    material10.color.g = 0.0;
+                    material10.color.b = 0.0;
+                }
+                
+                if (cube11.position.z >= -4.0) {
+                    material11.color.r = cube11.position.z / 4.0;
+                    material11.color.g = g;
+                    material11.color.b = cube11.position.z / 4.0;
+                } else {
+                    material11.color.r = 0.0;
+                    material11.color.g = 0.0;
+                    material11.color.b = 0.0;
+                }
+                
+                //cube.rotation.x += 0.01;
+                //cube.rotation.y += 0.01;
+                
+                cube.position.z += speed;
+                cube1.position.z += speed;
+                cube2.position.z += speed;
+                cube3.position.z += speed;
+                cube4.position.z += speed;
+                cube5.position.z += speed;
+                cube6.position.z += speed;
+                cube7.position.z += speed;
+                cube8.position.z += speed;
+                cube9.position.z += speed;
+                cube10.position.z += speed;
+                cube11.position.z += speed;
+                
+                
+                if (cube.position.z > 5.0) {
+                    material.color.r = 0.0;
+                    material.color.g = 0.0;
+                    material.color.b = 0.0;
+                    cube.position.z = -7.0;
+                }
+                
+                if (cube1.position.z > 5.0) {
+                    material1.color.r = 0.0;
+                    material1.color.g = 0.0;
+                    material1.color.b = 0.0;
+                    cube1.position.z = -7.0;
+                }
+                
+                if (cube2.position.z > 5.0) {
+                    material2.color.r = 0.0;
+                    material2.color.g = 0.0;
+                    material2.color.b = 0.0;
+                    cube2.position.z = -7.0;
+                }
+                
+                if (cube3.position.z > 5.0) {
+                    material3.color.r = 0.0;
+                    material3.color.g = 0.0;
+                    material3.color.b = 0.0;
+                    cube3.position.z = -7.0;
+                }
+                
+                if (cube4.position.z > 5.0) {
+                    material4.color.r = 0.0;
+                    material4.color.g = 0.0;
+                    material4.color.b = 0.0;
+                    cube4.position.z = -7.0;
+                }
+                
+                if (cube5.position.z > 5.0) {
+                    material5.color.r = 0.0;
+                    material5.color.g = 0.0;
+                    material5.color.b = 0.0;
+                    cube5.position.z = -7.0;
+                }
+                
+                if (cube6.position.z > 5.0) {
+                    material6.color.r = 0.0;
+                    material6.color.g = 0.0;
+                    material6.color.b = 0.0;
+                    cube6.position.z = -7.0;
+                }
+                
+                if (cube7.position.z > 5.0) {
+                    material7.color.r = 0.0;
+                    material7.color.g = 0.0;
+                    material7.color.b = 0.0;
+                    cube7.position.z = -7.0;
+                }
+                
+                if (cube8.position.z > 5.0) {
+                    material8.color.r = 0.0;
+                    material8.color.g = 0.0;
+                    material8.color.b = 0.0;
+                    cube8.position.z = -7.0;
+                }
+                
+                if (cube9.position.z > 5.0) {
+                    material9.color.r = 0.0;
+                    material9.color.g = 0.0;
+                    material9.color.b = 0.0;
+                    cube9.position.z = -7.0;
+                }
+                
+                if (cube10.position.z > 5.0) {
+                    material10.color.r = 0.0;
+                    material10.color.g = 0.0;
+                    material10.color.b = 0.0;
+                    cube10.position.z = -7.0;
+                }
+                
+                if (cube11.position.z > 5.0) {
+                    material11.color.r = 0.0;
+                    material11.color.g = 0.0;
+                    material11.color.b = 0.0;
+                    cube11.position.z = -7.0;
+                }
+                
+                
+                /*
+                if (rReverse) {
+                    if (r > 0.0) {
+                        r -= 0.005;
+                    }
+                    if (r <= 0.0) {
+                        rReverse = false;
+                    }
+                } else {
+                    if (r < 1.0) {
+                        r += 0.005;
+                    }
+                    if (r >= 1.0) {
+                        rReverse = true;
+                    }
+                }
+                
+                if (gReverse) {
+                    if (g < 0.0) {
+                        g -= 0.005;
+                    }
+                    if (g <= 0.0) {
+                        gReverse = false;
+                    }
+                } else {
+                    if (g > 1.0) {
+                        g += 0.005;
+                    }
+                    if (g >= 1.0) {
+                        gReverse = true;
+                    }
+                }
+                
+                if (bReverse) {
+                    if (b < 0.0) {
+                        b -= 0.005;
+                    }
+                    if (b <= 0.0) {
+                        bReverse = false;
+                    }
+                } else {
+                    if (b > 1.0) {
+                        b += 0.005;
+                    }
+                    if (b >= 1.0) {
+                        bReverse = true;
+                    }
+                }
+                */
+                
+                requestAnimationFrame(animate);
+                renderer.render(scene, camera);
+            }
+            
+            animate();
+        </script>
+        
+        <div id="container"></div>
+        
+    </body>
+</html>

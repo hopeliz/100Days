@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--<script src="scripts/jquery-3.3.1.min.js"></script>-->
+        <meta charset="utf-8">
+        <title>Day 007: Three.js test</title>
+        <base target="_blank" />
+        <style>
+			body { margin: 0; }
+			canvas { display: block; }
+		</style>
+    </head>
+    <body>
+        <script src="scripts/three.js"></script>
+        <script>
+            // Define scene
+            var scene = new THREE.Scene();
+            
+            // Define camera
+            var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            
+            // Define renderer
+            var renderer = new THREE.WebGLRenderer();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            document.body.appendChild(renderer.domElement);
+            
+            // Create cube
+            //var geometry = new THREE.BoxGeometry();
+            var geometry = new THREE.BufferGeometry();
+            
+            // Set verticies
+            
+            var verticies = new Float32Array( [
+                -1.0, -1.0,  0.5,
+                 1.0, -1.0,  1.0,
+                 1.0,  1.0,  1.0,
+                 
+                 1.0,  -0.5,  0.25,
+                -1.0,  1.0,  1.0,
+                -1.0, -1.0,  1.0,
+                
+                1.0,  1.0,  -0.25,
+                -1.0,  1.0,  -0.25,
+                -1.0, -1.0,  -0.0
+            ]);
+            
+            var r, g, b, color;
+            color = 'rgba(' + r + ', ' + g + ', ' + b +', 1.0)';
+            r = 0.01;
+            g = 0.25;
+            b = 0.5;
+            
+            geometry.setAttribute('position', new THREE.BufferAttribute(verticies, 3));
+            
+            // Create material
+            var material = new THREE.MeshBasicMaterial();
+            material.color.r = r;
+            material.color.g = g;
+            material.color.b = b;
+            
+            // Add material to cube
+            var cube = new THREE.Mesh(geometry, material);
+            
+            // Add to scene
+            scene.add(cube);
+            
+            // Set camera position to make the cube visible
+            camera.position.z = 5;
+            
+            var rReverse = false;
+            var gReverse = false;
+            var bReverse = false;
+            
+            function animate() {
+                material.color.r = r;
+                material.color.g = g;
+                material.color.b = b;
+                cube.rotation.x += 0.01;
+                cube.rotation.y += 0.01;
+                
+                
+                if (rReverse) {
+                    if (r > 0.0) {
+                        r -= 0.005;
+                    }
+                    if (r <= 0.0) {
+                        rReverse = false;
+                    }
+                } else {
+                    if (r < 1.0) {
+                        r += 0.005;
+                    }
+                    if (r >= 1.0) {
+                        rReverse = true;
+                    }
+                }
+                
+                if (gReverse) {
+                    if (g < 0.0) {
+                        g -= 0.005;
+                    }
+                    if (g <= 0.0) {
+                        gReverse = false;
+                    }
+                } else {
+                    if (g > 1.0) {
+                        g += 0.005;
+                    }
+                    if (g >= 1.0) {
+                        gReverse = true;
+                    }
+                }
+                
+                if (bReverse) {
+                    if (b < 0.0) {
+                        b -= 0.005;
+                    }
+                    if (b <= 0.0) {
+                        bReverse = false;
+                    }
+                } else {
+                    if (b > 1.0) {
+                        b += 0.005;
+                    }
+                    if (b >= 1.0) {
+                        bReverse = true;
+                    }
+                }
+                
+                
+                requestAnimationFrame(animate);
+                renderer.render(scene, camera);
+            }
+            
+            animate();
+        </script>
+        
+        <div id="container"></div>
+        
+    </body>
+</html>
