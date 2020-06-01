@@ -1,4 +1,4 @@
-# Day 3 Notes
+# Day 2 Notes
 
 ### Platform
 This code is to be used in Processing. The Arduino code uses the serial port and was built for rotary encoders. Be sure to upload the arduino code to the microcontroller. The project was created with Processing, Arduino, and GLSL.
