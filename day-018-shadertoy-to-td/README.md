@@ -1,7 +1,7 @@
 # Day 18 Notes
 
 ### Platform
-This .tox code can be opened in Derivative TouchDesigner
+This .tox code can be opened in [Derivative TouchDesigner](https://derivative.ca/)
 
 ### Links and References
 Tutorial I followed: [Touchdesigner - Shadertoy GLSL integration](https://youtu.be/2JDR5l5UjRU) by Programming for People
