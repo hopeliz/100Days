@@ -1,7 +1,7 @@
 # Day 10 Notes
 
 ### Platform
-This code is to be used in Processing.
+This code is to be used in [Processing](https://processing.org/).
 
 ### Folder Structure
 light.frag must be in the data folder
