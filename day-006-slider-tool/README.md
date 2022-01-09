@@ -1,7 +1,7 @@
 # Day 6 Notes
 
 ### Platform
-This code is to be used in Processing. It was created with Processing and GLSL.
+This code is to be used in [Processing](https://processing.org/). It was created with Processing and GLSL.
 
 ### Folder Structure
 The folder stucture needs to be maintained or updated if changed.
